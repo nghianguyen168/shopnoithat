@@ -60,4 +60,22 @@ public class SanPhamServiceImpl implements SanPhamService {
 		// TODO Auto-generated method stub
 		return sanPhamDAO.findRD();
 	}
+
+	@Override
+	public List<SanPham> findNew() {
+		// TODO Auto-generated method stub
+		return sanPhamDAO.find_new();
+	}
+
+	@Override
+	public List<SanPham> find_by_cat(int offset, int limit, int catId) {
+		// TODO Auto-generated method stub
+		return sanPhamDAO.findByCat(offset, limit, catId);
+	}
+
+	@Override
+	public List<SanPham> find_by_cat_All(int catId) {
+		// TODO Auto-generated method stub
+		return sanPhamDAO.findByCat_All(catId);
+	}
 }

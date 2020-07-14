@@ -23,5 +23,9 @@ public interface SanPhamService {
 	List<SanPham> findAll(int offset, int limit);
 	
 	int totalRow();
-
+	
+	List<SanPham> findNew();
+	
+	List<SanPham> find_by_cat(int offset, int limit,int catId);
+	List<SanPham> find_by_cat_All(int catId);
 }

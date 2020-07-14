@@ -237,8 +237,8 @@
 
 			<div id="recommend-slider" class="product-flexslider hidden-buttons">
 				<div class="slider-items slider-width-col3 owl-carousel owl-theme" style="opacity: 1; display: block;">
-					<c:if test="${not empty listSanPham }">
-						<c:forEach items="${listSanPham}" var="sp">
+					<c:if test="${not empty sanphammoiList }">
+						<c:forEach items="${sanphammoiList}" var="sp">
 							<!-- Item -->
 							<div class="owl-wrapper-outer">
 

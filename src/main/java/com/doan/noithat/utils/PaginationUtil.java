@@ -7,6 +7,9 @@ public class PaginationUtil {
 	public static int getOffset(int currentPage) {
 		return (currentPage -1 ) * GlobalsConstant.LIMIT_PAGE;
 	}
+	public static int getOffsetCat(int currentPage) {
+		return (currentPage -1 ) * GlobalsConstant.LIMIT_PAGE_CAT;
+	}
 	
 	public static int getOffset(int currentPage ,int limit) {
 		return (currentPage -1 ) * limit;
