@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@include file="/WEB-INF/templates/tags/taglib.jsp"%>
 <header class="header-container">
     <div class="header-top">
       <div class="container">
@@ -53,6 +54,8 @@
               <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle"> <a href="shopping_cart.html"> <i class="icon-cart"></i>
                 <div class="cart-box"><span class="title">Giỏ hàng</span><span id="cart-total"> 2 </span></div>
                 </a></div>
+                
+               
               <div>
                 <div class="top-cart-content arrow_box">
                   <div class="block-subtitle">Recently added item(s)</div>
@@ -89,9 +92,16 @@
               <input class="title_shopping_cart" value="Go to shopping cart" type="hidden">
             </div>
           </div>
-          <div class="signup"><a title="Login" href="login.html"><span>Đăng kí</span></a></div>
-          <span class="or"> | </span>
-          <div class="login"><a title="Login" href="login.html"><span>Đăng nhập</span></a></div>
+           
+			<c:choose>
+				<c:when test="${taikhoan ne null }">
+					<div class="signup"><a title="Login" href="login.html">Hello,<span style="color: #7bbd42; font-size: 20px;">${taikhoan.taiKhoan}</span></a></div>
+				</c:when>
+				<c:otherwise>
+       				   <div class="login"><a title="Login" href="login.html"><span>Đăng nhập</span></a></div>
+				</c:otherwise>
+			</c:choose>
+        
         </div>
         <!-- End Top Cart --> 
       </div>

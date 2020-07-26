@@ -42,4 +42,10 @@ public class TaiKhoanServiceImpl implements TaiKhoanService {
 	public int edit(TaiKhoan taiKhoan) {
 		return taiKhoanDAO.edit(taiKhoan);
 	}
+
+	@Override
+	public TaiKhoan findByUsername(String username) {
+		// TODO Auto-generated method stub
+		return taiKhoanDAO.findByUsername(username);
+	}
 }

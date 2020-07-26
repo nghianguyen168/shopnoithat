@@ -17,5 +17,7 @@ public interface KhachHangService {
 	KhachHang findOne(int id);
 
 	int edit(KhachHang khachHang);
+	
+	KhachHang login(String username, String password);
 
 }

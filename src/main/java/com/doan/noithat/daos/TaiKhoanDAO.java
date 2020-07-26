@@ -20,6 +20,7 @@ public class TaiKhoanDAO {
 	private final String EDIT_TAIKHOAN = "UPDATE taikhoan SET TaiKhoan = ?,MatKhau = ?,PhanQuyen = ? WHERE ID = ?";
 	private final String DEL_TAIKHOAN = "DELETE FROM taikhoan WHERE ID = ?";
 	private final String FINDONE_TK = "SELECT * FROM taikhoan WHERE ID = ? ";
+	private final String FINDBYUSERNAME = "SELECT * FROM taikhoan WHERE TaiKhoan = ? ";
 
 	public List<TaiKhoan> findAll() {
 		return jdbcTemplate.query(SQL_FIND_ALL, new BeanPropertyRowMapper<>(TaiKhoan.class));
@@ -37,9 +38,14 @@ public class TaiKhoanDAO {
 	public TaiKhoan findOne(int id) {
 		return jdbcTemplate.queryForObject(FINDONE_TK, new BeanPropertyRowMapper<>(TaiKhoan.class), id);
 	}
+	public TaiKhoan findByUsername(String username) {
+		return jdbcTemplate.queryForObject(FINDBYUSERNAME, new BeanPropertyRowMapper<>(TaiKhoan.class), username);
+	}
+
 
 	public int edit(TaiKhoan taiKhoan) {
 
 		return jdbcTemplate.update(EDIT_TAIKHOAN, taiKhoan.getTaiKhoan(), taiKhoan.getMatKhau(), taiKhoan.getPhanQuyen(),taiKhoan.getId());
 	}
+	
 }

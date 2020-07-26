@@ -234,6 +234,7 @@
 			<div class="new_title center">
 				<h2>SẢN PHẨM MỚI</h2>
 			</div>
+			
 
 			<div id="recommend-slider" class="product-flexslider hidden-buttons">
 				<div class="slider-items slider-width-col3 owl-carousel owl-theme" style="opacity: 1; display: block;">

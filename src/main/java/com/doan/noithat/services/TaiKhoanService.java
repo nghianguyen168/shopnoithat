@@ -15,6 +15,7 @@ public interface TaiKhoanService {
 	int del(int id);
 	
 	TaiKhoan findOne(int id);
+	TaiKhoan findByUsername(String username);
 
 	int edit(TaiKhoan taiKhoan);
 

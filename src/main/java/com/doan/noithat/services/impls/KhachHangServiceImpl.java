@@ -42,4 +42,10 @@ public class KhachHangServiceImpl implements KhachHangService {
 	public int edit(KhachHang khachHang) {
 		return khachHangDAO.edit(khachHang);
 	}
+
+	@Override
+	public KhachHang login(String username, String password) {
+		// TODO Auto-generated method stub
+		return khachHangDAO.login(username, password);
+	}
 }

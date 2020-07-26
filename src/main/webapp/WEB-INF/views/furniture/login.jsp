@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
  <div class="main container">
       <div class="account-login">
         <div class="page-title">
@@ -18,23 +19,25 @@
           <div class="col-2 registered-users"><strong>KHÁCH HÀNG ĐÃ ĐĂNG KÝ</strong>
             <div class="content">
               <p>Nếu bạn có tài khoản với chúng tôi, vui lòng đăng nhập.</p>
+              <form  method="post">
+              
               <ul class="form-list">
                 <li>
                   <label for="email">Địa chỉ email  <span class="required">*</span></label>
                   <br>
-                  <input type="text" title="Email Address" class="input-text required-entry" id="email" value="" name="login[username]">
+                  <input type="text" title="Email Address" class="input-text required-entry" id="email" value="" name="username">
                 </li>
                 <li>
                   <label for="pass">Mật khẩu <span class="required">*</span></label>
                   <br>
-                  <input type="password" title="Password" id="pass" class="input-text required-entry validate-password" name="login[password]">
-                </li>
+                  <input type="password" title="Password" id="pass" class="input-text required-entry validate-password" name="password"></li>
               </ul>
               <p class="required">* Phần bắt buộc</p>
               <div class="buttons-set">
-                <button id="send2" name="send" type="submit" class="button login"><span>ĐĂNG NHẬP</span></button>
+                <input id="send2" name="send" type="submit" class="button login" value="Đăng nhập" />
                 <a class="forgot-word" href="http://demo.magentomagik.com/computerstore/customer/account/forgotpassword/">Quên mật khẩu?</a> </div>
             </div>
+            </form>
           </div>
         </fieldset>
       </div>
