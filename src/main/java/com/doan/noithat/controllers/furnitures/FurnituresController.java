@@ -15,12 +15,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.doan.noithat.constants.GlobalsConstant;
 import com.doan.noithat.models.DanhMucSanPham;
-import com.doan.noithat.models.KhachHang;
 import com.doan.noithat.models.SanPham;
 import com.doan.noithat.models.TaiKhoan;
 import com.doan.noithat.services.DanhMucSanPhamService;
@@ -28,7 +26,6 @@ import com.doan.noithat.services.KhachHangService;
 import com.doan.noithat.services.SanPhamService;
 import com.doan.noithat.services.TaiKhoanService;
 import com.doan.noithat.utils.PaginationUtil;
-import com.doan.noithat.utils.StringUtil;
 
 @Controller
 @RequestMapping("furniture")
@@ -65,7 +62,7 @@ public class FurnituresController {
 			username="";
 		}
 		if(!"".equals(username)) {
-			TaiKhoan taiKhoan = taiKhoanService.findByUserame(username);
+			TaiKhoan taiKhoan = taiKhoanService.findByUsername(username);
 			session.setAttribute("taikhoan", taiKhoan);
 			
 		}

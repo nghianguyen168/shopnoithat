@@ -87,145 +87,7 @@
 </div>
 <!-- end offer banner section -->
 <!-- main container -->
-<section class="main-container col1-layout home-content-container">
-	<div class="container">
-		<div class="row">
-			<div class="std">
-				<div class="col-lg-8 col-xs-12 col-sm-8 best-seller-pro wow">
-					<div class="slider-items-products">
-						<div class="new_title center">
-							<h2>SẢN PHẨM BÁN CHẠY</h2>
-						</div>
-						<div id="best-seller-slider" class="product-flexslider hidden-buttons">
-							<div class="slider-items slider-width-col4">
-								<!-- Item -->
-								<div class="item">
-									<div class="col-item">
-										<div class="sale-label sale-top-right">Sale</div>
-										<div class="images-container">
-											<a class="product-image" title="Sample Product" href="product_detail.html"> <img src="${pageContext.request.contextPath}/resources/furniture/products-images/product1.jpg"
-												class="img-responsive" alt="product-image" />
-											</a>
-											<div class="actions">
-												<div class="actions-inner">
-													<button type="button" title="Add to Cart" class="button btn-cart">
-														<span>Add to Cart</span>
-													</button>
-													<ul class="add-to-links">
-														<li><a href="wishlist.html" title="Add to Wishlist" class="link-wishlist"><span>Add to Wishlist</span></a></li>
-														<li><a href="compare.html" title="Add to Compare" class="link-compare "><span>Add to Compare</span></a></li>
-													</ul>
-												</div>
-											</div>
-											<div class="qv-button-container">
-												<a href="quick_view.html" class="qv-e-button btn-quickview-1"><span><span>Quick View</span></span></a>
-											</div>
-										</div>
-										<div class="info">
-											<div class="info-inner">
-												<div class="item-title">
-													<a title=" Sample Product" href="product_detail.html"> Sample Product </a>
-												</div>
-												<!--item-title-->
-												<div class="item-content">
-													<div class="ratings">
-														<div class="rating-box">
-															<div style="width: 60%" class="rating"></div>
-														</div>
-													</div>
-													<div class="price-box">
-														<p class="special-price">
-															<span class="price"> $45.00 </span>
-														</p>
-														<p class="old-price">
-															<span class="price-sep">-</span> <span class="price"> $50.00 </span>
-														</p>
-													</div>
-												</div>
-												<!--item-content-->
-											</div>
-											<!--info-inner-->
 
-											<!--actions-->
-											<div class="clearfix"></div>
-										</div>
-									</div>
-								</div>
-								<!-- End Item -->
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-xs-12 col-sm-4 wow latest-pro small-pr-slider">
-					<div class="slider-items-products">
-						<div class="new_title center">
-							<h2>Latest Products</h2>
-						</div>
-						<div id="latest-deals-slider" class="product-flexslider hidden-buttons latest-item">
-							<div class="slider-items slider-width-col4">
-								<!-- Item -->
-								<div class="item">
-									<div class="col-item">
-										<div class="images-container">
-											<a class="product-image" title="Sample Product" href="product_detail.html"> <img src="${pageContext.request.contextPath}/resources/furniture/products-images/product4.jpg"
-												class="img-responsive" alt="product-image" />
-											</a>
-											<div class="actions">
-												<div class="actions-inner">
-													<ul class="add-to-links">
-														<li><a href="wishlist.html" title="Add to Wishlist" class="link-wishlist"><span>Add to Wishlist</span></a></li>
-														<li><a href="compare.html" title="Add to Compare" class="link-compare "><span>Add to Compare</span></a></li>
-													</ul>
-												</div>
-											</div>
-											<div class="qv-button-container">
-												<a href="quick_view.html" class="qv-e-button btn-quickview-1"><span><span>Quick View</span></span></a>
-											</div>
-										</div>
-										<div class="info">
-											<div class="info-inner">
-												<div class="item-title">
-													<a title=" Sample Product" href="product_detail.html"> Sample Product </a>
-												</div>
-												<!--item-title-->
-												<div class="item-content">
-													<div class="ratings">
-														<div class="rating-box">
-															<div style="width: 60%" class="rating"></div>
-														</div>
-													</div>
-													<div class="price-box">
-														<p class="special-price">
-															<span class="price"> $45.00 </span>
-														</p>
-														<p class="old-price">
-															<span class="price-sep">-</span> <span class="price"> $50.00 </span>
-														</p>
-													</div>
-												</div>
-												<!--item-content-->
-											</div>
-											<!--info-inner-->
-											<div class="actions">
-												<button class="button btn-cart" title="Add to Cart" type="button">
-													<span>Add to Cart</span>
-												</button>
-											</div>
-											<!--actions-->
-											<div class="clearfix"></div>
-										</div>
-									</div>
-								</div>
-								<!-- End Item -->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- End main container -->
 
 <!-- recommend slider -->
 <section class="recommend container">
@@ -233,6 +95,190 @@
 		<div class="slider-items-products">
 			<div class="new_title center">
 				<h2>SẢN PHẨM MỚI</h2>
+			</div>
+			
+
+			<div id="recommend-slider" class="product-flexslider hidden-buttons">
+				<div class="slider-items slider-width-col3 owl-carousel owl-theme" style="opacity: 1; display: block;">
+					<c:if test="${not empty sanphammoiList }">
+						<c:forEach items="${sanphammoiList}" var="sp">
+							<!-- Item -->
+							<div class="owl-wrapper-outer">
+
+								<div class="owl-wrapper" style="width: 2960px; left: 0px; display: block; transition: all 0ms ease 0s; transform: translate3d(0px, 0px, 0px);">
+									<div class="owl-item" style="width: 185px;">
+										<div class="item">
+
+											<div class="col-item">
+												<div class="new-label new-top-right">New</div>
+												<div class="images-container">
+													<a class="product-image" title="Sample Product" href="product_detail.html"> <img src="${pageContext.request.contextPath}/images/${sp.hinhAnh}" class="img-responsive" alt="a"
+														style="width: 500px; height: 180px;">
+													</a>
+													<div class="actions">
+														<div class="actions-inner">
+															<ul class="add-to-links">
+																<li><a href="wishlist.html" title="Add to Wishlist" class="link-wishlist"><span>Add to Wishlist</span></a></li>
+																<li><a href="compare.html" title="Add to Compare" class="link-compare "><span>Add to Compare</span></a></li>
+															</ul>
+														</div>
+													</div>
+													<div class="qv-button-container">
+														<a href="quick_view.html" class="qv-e-button btn-quickview-1"><span><span>Quick View</span></span></a>
+													</div>
+												</div>
+												<div class="info">
+													<div class="info-inner">
+														<div class="item-title">
+															<a title=" Sample Product" href="${pageContext.request.contextPath}/furniture/detail/${sp.id}"> ${sp.tenSanPham} </a>
+														</div>
+														<!--item-title-->
+														<div class="item-content">
+															<div class="ratings">
+																<div class="rating-box">
+																	<div style="width: ${sp.sao}%" class="rating"></div>
+																</div>
+															</div>
+															<div class="price-box">
+																<p class="special-price">
+																	<span class="price"> <fmt:formatNumber type="number" groupingUsed="true" value="${sp.giaGoc} " />₫
+																	</span>
+																</p>
+															</div>
+														</div>
+														<!--item-content-->
+													</div>
+													<!--info-inner-->
+													<div class="actions">
+														<button type="button" title="Add to Cart" class="button btn-cart">
+															<span>Add to Cart</span>
+														</button>
+													</div>
+													<!--actions-->
+													<div class="clearfix"></div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<!-- End Item -->
+
+
+							</div>
+						</c:forEach>
+					</c:if>
+					<div class="owl-controls clickable">
+						<div class="owl-buttons">
+							<div class="owl-prev">
+								<a class="flex-prev"></a>
+							</div>
+							<div class="owl-next">
+								<a class="flex-next"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="new-pro-slider small-pr-slider" style="overflow: visible">
+		<div class="slider-items-products">
+			<div class="new_title center">
+				<h2>SẢN PHẨM BÁN CHẠY</h2>
+			</div>
+			
+
+			<div id="recommend-slider" class="product-flexslider hidden-buttons">
+				<div class="slider-items slider-width-col3 owl-carousel owl-theme" style="opacity: 1; display: block;">
+					<c:if test="${not empty sanphammoiList }">
+						<c:forEach items="${sanphammoiList}" var="sp">
+							<!-- Item -->
+							<div class="owl-wrapper-outer">
+
+								<div class="owl-wrapper" style="width: 2960px; left: 0px; display: block; transition: all 0ms ease 0s; transform: translate3d(0px, 0px, 0px);">
+									<div class="owl-item" style="width: 185px;">
+										<div class="item">
+
+											<div class="col-item">
+												<div class="new-label new-top-right">New</div>
+												<div class="images-container">
+													<a class="product-image" title="Sample Product" href="product_detail.html"> <img src="${pageContext.request.contextPath}/images/${sp.hinhAnh}" class="img-responsive" alt="a"
+														style="width: 500px; height: 180px;">
+													</a>
+													<div class="actions">
+														<div class="actions-inner">
+															<ul class="add-to-links">
+																<li><a href="wishlist.html" title="Add to Wishlist" class="link-wishlist"><span>Add to Wishlist</span></a></li>
+																<li><a href="compare.html" title="Add to Compare" class="link-compare "><span>Add to Compare</span></a></li>
+															</ul>
+														</div>
+													</div>
+													<div class="qv-button-container">
+														<a href="quick_view.html" class="qv-e-button btn-quickview-1"><span><span>Quick View</span></span></a>
+													</div>
+												</div>
+												<div class="info">
+													<div class="info-inner">
+														<div class="item-title">
+															<a title=" Sample Product" href="product_detail.html"> ${sp.tenSanPham} </a>
+														</div>
+														<!--item-title-->
+														<div class="item-content">
+															<div class="ratings">
+																<div class="rating-box">
+																	<div style="width: ${sp.sao}%" class="rating"></div>
+																</div>
+															</div>
+															<div class="price-box">
+																<p class="special-price">
+																	<span class="price"> <fmt:formatNumber type="number" groupingUsed="true" value="${sp.giaGoc} " />₫
+																	</span>
+																</p>
+															</div>
+														</div>
+														<!--item-content-->
+													</div>
+													<!--info-inner-->
+													<div class="actions">
+														<button type="button" title="Add to Cart" class="button btn-cart">
+															<span>Add to Cart</span>
+														</button>
+													</div>
+													<!--actions-->
+													<div class="clearfix"></div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<!-- End Item -->
+
+
+							</div>
+						</c:forEach>
+					</c:if>
+					<div class="owl-controls clickable">
+						<div class="owl-buttons">
+							<div class="owl-prev">
+								<a class="flex-prev"></a>
+							</div>
+							<div class="owl-next">
+								<a class="flex-next"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="new-pro-slider small-pr-slider" style="overflow: visible">
+		<div class="slider-items-products">
+			<div class="new_title center">
+				<h2>SẢN PHẨM KHUYẾN MÃI</h2>
 			</div>
 			
 
