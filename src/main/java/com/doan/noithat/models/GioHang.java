@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GioHang {
+	private int giohang_id;
 	private SanPham sanPham;
-	private int soLuong;
+	private int soluong;
+	private int id_nguoiDung;
+	private int id_DonHang;
 }

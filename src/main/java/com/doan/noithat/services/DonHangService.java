@@ -3,6 +3,8 @@ package com.doan.noithat.services;
 import java.util.List;
 
 import com.doan.noithat.models.DonHang;
+import com.doan.noithat.models.TaiKhoan;
+import com.doan.noithat.models.ThongTinDatHang;
 
 public interface DonHangService {
 
@@ -17,4 +19,9 @@ public interface DonHangService {
 	int edit(DonHang donHang);
 
 	int totalRow();
+	
+	int add_order(TaiKhoan taiKhoan,ThongTinDatHang thongTinDatHang,int soluong,int hinhthuc_tt,int id_donhang);
+	
+	List<DonHang> find_By_User(TaiKhoan taiKhoan);
+	
 }

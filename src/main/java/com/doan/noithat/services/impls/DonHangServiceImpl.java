@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.doan.noithat.daos.DonHangDAO;
 import com.doan.noithat.models.DonHang;
+import com.doan.noithat.models.TaiKhoan;
+import com.doan.noithat.models.ThongTinDatHang;
 import com.doan.noithat.services.DonHangService;
 
 @Service
@@ -48,5 +50,17 @@ public class DonHangServiceImpl implements DonHangService {
 	public int totalRow() {
 		// TODO Auto-generated method stub
 		return donHangDAO.totalRow();
+	}
+
+	@Override
+	public int add_order(TaiKhoan taiKhoan, ThongTinDatHang thongTinDatHang, int soluong, int hinhthuc_tt,int id_donhang) {
+		// TODO Auto-generated method stub
+		return donHangDAO.add_order(taiKhoan, thongTinDatHang, soluong, hinhthuc_tt, id_donhang);
+	}
+
+	@Override
+	public List<DonHang> find_By_User(TaiKhoan taiKhoan) {
+		// TODO Auto-generated method stub
+		return donHangDAO.don_Hang_User(taiKhoan);
 	}
 }

@@ -66,7 +66,9 @@ public class WebMvcConfig implements WebMvcConfigurer{
 		
 		registry.addResourceHandler("/resources/**").addResourceLocations("/WEB-INF/resources/");
 		registry.addResourceHandler("/images/**").addResourceLocations("/uploads/");
-		registry.addResourceHandler("/ckeditor/**").addResourceLocations("/ckeditor/");
+		 registry.addResourceHandler("/ckeditor/**").addResourceLocations("/ckeditor/");
+		
+		registry.addResourceHandler("/librarie/**").addResourceLocations("/WEB-INF/librarie/");
 	}
 	
     

@@ -25,8 +25,8 @@ public class SanPhamDAO {
 	private static final String SQL_FIND_ALL = "SELECT s.*,d.TenDanhMuc,n.TenNCC FROM sanpham AS s "
 			+ "INNER JOIN danhmucsanpham AS d ON s.IDDanhMucSP = d.ID "
 			+ "INNER JOIN nhacungcap AS n ON s.IDNhaCungCap = n.ID ORDER BY s.ID DESC";
-	private static final String ADD_SANPHAM = "INSERT INTO sanpham(TenSanPham,MoTaSanPham,DonViTinh,SoLuongTon,IDDanhMucSP,IDNhaCungCap,Thue,GiaGoc,GiaKhuyenMai,HinhAnh,HinhAnh_Mota,Sao) value(?,?,?,?,?,?,?,?,?,?,?,?)";
-	private static final String EDIT_SANPHAM = "UPDATE sanpham SET TenSanPham = ?,MoTaSanPham = ?,DonViTinh = ?,SoLuongTon = ? ,IDDanhMucSP = ?,IDNhaCungCap = ?,Thue = ?,GiaGoc = ?,GiaKhuyenMai = ?,HinhAnh= ?,Sao = ? WHERE ID = ?";
+	private static final String ADD_SANPHAM = "INSERT INTO sanpham(TenSanPham,MoTaSanPham,MoTaChiTiet,DonViTinh,SoLuongTon,IDDanhMucSP,IDNhaCungCap,Thue,GiaGoc,GiaKhuyenMai,HinhAnh,HinhAnh_Mota,Sao) value(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	private static final String EDIT_SANPHAM = "UPDATE sanpham SET TenSanPham = ?,MoTaSanPham = ?,MoTaChiTiet = ?,DonViTinh = ?,SoLuongTon = ? ,IDDanhMucSP = ?,IDNhaCungCap = ?,Thue = ?,GiaGoc = ?,GiaKhuyenMai = ?,HinhAnh= ?,Sao = ? WHERE ID = ?";
 	private static final String DEL_SANPHAM = "DELETE FROM sanpham WHERE ID =?";
 	private static final String FINDONE_SP = "SELECT * FROM sanpham WHERE ID = ? ";
 	private static final String FIND_ALL_PAGINATE = "SELECT s.*,d.TenDanhMuc,n.TenNCC FROM sanpham AS s "
@@ -34,9 +34,14 @@ public class SanPhamDAO {
 			+ "INNER JOIN nhacungcap AS n ON s.IDNhaCungCap = n.ID ORDER BY s.ID DESC LIMIT ?,?";
 	private static final String TOTAL_ROW = "SELECT COUNT(*) AS totalRow FROM sanpham ";
 	private static final String FIND_RD = "SELECT * FROM sanpham  ORDER BY RAND() LIMIT 6 ";
+	
 	private static final String FIND_NEW = "SELECT s.*,d.TenDanhMuc,n.TenNCC FROM sanpham AS s "
 			+ "INNER JOIN danhmucsanpham AS d ON s.IDDanhMucSP = d.ID "
 			+ "INNER JOIN nhacungcap AS n ON s.IDNhaCungCap = n.ID ORDER BY s.ID DESC LIMIT 10";
+	
+	private static final String FIND_DISCOUNT = "SELECT s.*,d.TenDanhMuc,n.TenNCC FROM sanpham AS s "
+			+ "INNER JOIN danhmucsanpham AS d ON s.IDDanhMucSP = d.ID "
+			+ "INNER JOIN nhacungcap AS n ON s.IDNhaCungCap = n.ID WHERE GiaKhuyenMai>0 ORDER BY s.ID DESC ";
 
 	private static final String FIND_BY_CAT_PAGINATE = "SELECT s.*,d.TenDanhMuc,n.TenNCC FROM sanpham AS s"
 			+ " INNER JOIN danhmucsanpham AS d ON s.IDDanhMucSP = d.ID INNER JOIN nhacungcap AS n ON"
@@ -45,7 +50,9 @@ public class SanPhamDAO {
 	private static final String FIND_BY_CAT = "SELECT s.*,d.TenDanhMuc,n.TenNCC FROM sanpham AS s"
 			+ " INNER JOIN danhmucsanpham AS d ON s.IDDanhMucSP = d.ID INNER JOIN nhacungcap AS n ON"
 			+ " s.IDNhaCungCap = n.ID WHERE IDDanhMucSP= ? ORDER BY s.ID DESC";
+	private static final String EDIT_QUANLITY = "UPDATE sanpham SET SoLuongTon =SoLuongTon- ?  WHERE ID = ?";
 	// findAll
+	
 	public List<SanPham> findAll() {
 		return jdbcTemplate.query(SQL_FIND_ALL, new ResultSetExtractor<List<SanPham>>() {
 
@@ -65,6 +72,10 @@ public class SanPhamDAO {
 				return listSanPham;
 			}
 		});
+	}
+	
+	public int edit_quanlity(int id_sanPham,int soluong_dat) {
+		return jdbcTemplate.update(EDIT_QUANLITY,soluong_dat,id_sanPham);
 	}
 	// findAll
 	public List<SanPham> find_new() {
@@ -87,6 +98,28 @@ public class SanPhamDAO {
 			}
 		});
 	}
+	
+	// findAll
+		public List<SanPham> find_discount() {
+			return jdbcTemplate.query(FIND_DISCOUNT, new ResultSetExtractor<List<SanPham>>() {
+
+				@Override
+				public List<SanPham> extractData(ResultSet rs) throws SQLException, DataAccessException {
+					List<SanPham> listSanPham = new ArrayList<SanPham>();
+					while (rs.next()) {
+						SanPham sanPham = new SanPham(rs.getInt("id"), rs.getString("tenSanPham"),
+								rs.getString("moTaSanPham"), rs.getString("donViTinh"), rs.getInt("soLuongTon"),
+								new DanhMucSanPham(rs.getInt("id"), rs.getString("tenDanhMuc")),
+								new NhaCungCap(rs.getInt("id"), rs.getString("tenNCC")), rs.getString("thue"),
+								rs.getBigDecimal("giaGoc"), rs.getBigDecimal("giaKhuyenMai"), rs.getString("hinhAnh"),
+								rs.getInt("sao"));
+						listSanPham.add(sanPham);
+					}
+
+					return listSanPham;
+				}
+			});
+		}
 
 	// phân trang
 	public List<SanPham> findAll(int offset, int limit) {
@@ -157,7 +190,7 @@ public class SanPhamDAO {
 
 	public int add(SanPham sanPham) {
 
-		return jdbcTemplate.update(ADD_SANPHAM, sanPham.getTenSanPham(), sanPham.getMoTaSanPham(),
+		return jdbcTemplate.update(ADD_SANPHAM, sanPham.getTenSanPham(), sanPham.getMoTaSanPham(),sanPham.getMoTaChiTiet(),
 				sanPham.getDonViTinh(), sanPham.getSoLuongTon(), sanPham.getIdDanhMucSP(), sanPham.getIdNhaCungCap(),
 				sanPham.getThue(), sanPham.getGiaGoc(), sanPham.getGiaKhuyenMai(),  sanPham.getHinhAnh(),sanPham.getHinhAnh_MoTa(),
 				sanPham.getSao());
@@ -173,7 +206,7 @@ public class SanPhamDAO {
 
 	public int edit(SanPham sanPham) {
 
-		return jdbcTemplate.update(EDIT_SANPHAM, sanPham.getTenSanPham(), sanPham.getMoTaSanPham(),
+		return jdbcTemplate.update(EDIT_SANPHAM, sanPham.getTenSanPham(), sanPham.getMoTaSanPham(),sanPham.getMoTaChiTiet(),
 				sanPham.getDonViTinh(), sanPham.getSoLuongTon(), sanPham.getIdDanhMucSP(), sanPham.getIdNhaCungCap(),
 				sanPham.getThue(), sanPham.getGiaGoc(), sanPham.getGiaKhuyenMai(),  sanPham.getHinhAnh(),
 				sanPham.getSao(), sanPham.getId());

@@ -24,7 +24,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.jdbcAuthentication().dataSource(dataSource)
 				.usersByUsernameQuery("select TaiKhoan, MatKhau,enable from taikhoan where TaiKhoan=?")
 				.authoritiesByUsernameQuery("select k.TaiKhoan,concat('ROLE_',v.PhanQuyen) from taikhoan  k inner join vaitro v on v.ID = k.IDVaiTro where TaiKhoan=?")
-				.passwordEncoder(md5PasswordEncoder());
+				.passwordEncoder(bCryptPasswordEncoder());
 				
 	}
 

@@ -206,6 +206,12 @@
 		<put-attribute name="content"
 			value="/WEB-INF/views/admin/donhang/edit.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="admin.donhang.detail"
+		extends="templates.admin">
+		<put-attribute name="content"
+			value="/WEB-INF/views/admin/donhang/detail.jsp"></put-attribute>
+	</definition>
 	<!-- END DON HANG -->
 
 	<!-- DOTKHUYENMAI -->
@@ -285,4 +291,22 @@
 			value="/WEB-INF/views/admin/ctdonhang/index.jsp"></put-attribute>
 	</definition>
 	<!-- END CTDONHANG -->
+	
+	<!-- Banner -->
+	<definition name="admin.banner.index"
+		extends="templates.admin">
+		<put-attribute name="content"
+			value="/WEB-INF/views/admin/banner/index.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.banner.add"
+		extends="templates.admin">
+		<put-attribute name="content"
+			value="/WEB-INF/views/admin/banner/add.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.banner.edit"
+		extends="templates.admin">
+		<put-attribute name="content"
+			value="/WEB-INF/views/admin/banner/edit.jsp"></put-attribute>
+	</definition>
+	
 </tiles-definitions>

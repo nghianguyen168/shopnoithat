@@ -78,4 +78,16 @@ public class SanPhamServiceImpl implements SanPhamService {
 		// TODO Auto-generated method stub
 		return sanPhamDAO.findByCat_All(catId);
 	}
+
+	@Override
+	public int update_quanlity(int id_sanPham, int soluong_dat) {
+		// TODO Auto-generated method stub
+		return sanPhamDAO.edit_quanlity(id_sanPham, soluong_dat);
+	}
+
+	@Override
+	public List<SanPham> findDiscount() {
+		// TODO Auto-generated method stub
+		return sanPhamDAO.find_discount();
+	}
 }

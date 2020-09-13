@@ -33,11 +33,35 @@
 			value="/WEB-INF/views/furniture/login.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="furniture.signup" extends="templates.furniture">
+		<put-attribute name="content"
+			value="/WEB-INF/views/furniture/signup.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="furniture.cart" extends="templates.furniture">
+		<put-attribute name="content"
+			value="/WEB-INF/views/furniture/cart.jsp"></put-attribute>
+	</definition>
+	<definition name="furniture.invoice" extends="templates.furniture">
+		<put-attribute name="content"
+			value="/WEB-INF/views/furniture/invoice.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="furniture.order" extends="templates.furniture">
+		<put-attribute name="content"
+			value="/WEB-INF/views/furniture/order.jsp"></put-attribute>
+	</definition>
+	
 	<definition name="furniture.lienhe.index" extends="templates.furniture">
 		<put-attribute name="content"
 			value="/WEB-INF/views/furniture/lienhe/index.jsp"></put-attribute>
 	</definition>
-
+	
+	<definition name="success" extends="templates.furniture">
+		<put-attribute name="content"
+			value="/WEB-INF/views/furniture/success.jsp"></put-attribute>
+	</definition>
+	
 
 
 </tiles-definitions>

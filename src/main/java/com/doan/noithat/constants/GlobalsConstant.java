@@ -7,5 +7,6 @@ public class GlobalsConstant {
 	public static final String MSG = "msg";
 	public static final int LIMIT_PAGE = 5;
 	public static final int LIMIT_PAGE_CAT=4;
+	public static final String DIR_UPLOAD ="WEB-INF/uploads";
 	
 }

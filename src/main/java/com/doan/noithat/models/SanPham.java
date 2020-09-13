@@ -18,6 +18,7 @@ public class SanPham  implements Serializable {
 	private int id;
 	private String tenSanPham;
 	private String moTaSanPham;
+	private String moTaChiTiet;
 	private String donViTinh;
 	private int soLuongTon;
 	private DanhMucSanPham danhMucSanPham;
@@ -37,6 +38,7 @@ public class SanPham  implements Serializable {
 		this.tenSanPham = tenSanPham;
 	}
 
+	
 	public SanPham(int id, String tenSanPham, String moTaSanPham, String donViTinh, int soLuongTon, int idDanhMucSP,
 			int idNhaCungCap, String thue, BigDecimal giaGoc, BigDecimal giaKhuyenMai, String hinhAnh, int sao) {
 		super();
@@ -53,6 +55,7 @@ public class SanPham  implements Serializable {
 		this.hinhAnh = hinhAnh;
 		this.sao = sao;
 	}
+	
 	public SanPham(int id, String tenSanPham, String moTaSanPham, String donViTinh, int soLuongTon, int idDanhMucSP,
 			int idNhaCungCap, String thue, BigDecimal giaGoc, BigDecimal giaKhuyenMai, String hinhAnh,String hinhAnh_MoTa, int sao) {
 		super();
@@ -88,5 +91,30 @@ public class SanPham  implements Serializable {
 		this.hinhAnh = hinhAnh;
 		this.sao = sao;
 	}
+
+
+	public SanPham(int id, String tenSanPham, int soLuongTon, BigDecimal giaGoc,
+			BigDecimal giaKhuyenMai, String hinhAnh, int sao) {
+		super();
+		this.id = id;
+		this.tenSanPham = tenSanPham;
+		this.soLuongTon = soLuongTon;
+		
+		this.giaGoc = giaGoc;
+		this.giaKhuyenMai = giaKhuyenMai;
+		this.hinhAnh = hinhAnh;
+		this.sao = sao;
+	}
+
+
+	public SanPham(int id, String tenSanPham, String hinhAnh) {
+		super();
+		this.id = id;
+		this.tenSanPham = tenSanPham;
+		this.hinhAnh = hinhAnh;
+	}
+
+
+	
 
 }

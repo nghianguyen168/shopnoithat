@@ -5,30 +5,25 @@
 		<div id='rev_slider_4_wrapper' class='rev_slider_wrapper fullwidthbanner-container'>
 			<div id='rev_slider_4' class='rev_slider fullwidthabanner'>
 				<ul>
-					<li data-transition='random' data-slotamount='7' data-masterspeed='1000' data-thumb='${pageContext.request.contextPath}/resources/furniture/images/slider_img_1.html'><img
-						src='${pageContext.request.contextPath}/resources/furniture/images/slide-img1.jpg' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="banner" />
+				<c:if test="${bannerList ne null }">
+					<c:forEach items="${bannerList }" var="ban">
+				
+					<li data-transition='random' data-slotamount='7' data-masterspeed='1000' data-thumb='${pageContext.request.contextPath}/images/${ban.picture}'><img
+						src='${pageContext.request.contextPath}/images/${ban.picture}' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="banner" />
 						<div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='15' data-y='80' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none'
-							data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index: 2; white-space: nowrap;'>CHÀO MỪNG ĐẾN VỚI CHÚNG TÔI</div>
+							data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index: 2; white-space: nowrap;'>${ban.small_title }</div>
 						<div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='15' data-y='135' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none'
 							data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index: 3; white-space: nowrap;'>
-							CỬA HÀNG<span> ĐỒ NỘI THẤT </span>
+							<span style="color: 7bbd42;">${ban.big_title }</span>
 						</div>
 						<div class='tp-caption sfb  tp-resizeme ' data-x='15' data-y='360' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none'
 							data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index: 4; white-space: nowrap;'>
-							<a href='#' class="view-more">Xem thêm</a> <a href='#' class="buy-btn">Mua ngay</a>
+							<a href='#' class="view-more">Xem thêm</a> 
 						</div></li>
-					<li data-transition='random' data-slotamount='7' data-masterspeed='1000' data-thumb='${pageContext.request.contextPath}/resources/furniture/images/slider_img_2.jpg' class="black-text"><img
-						src='${pageContext.request.contextPath}/resources/furniture/images/slide-img2.jpg' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="banner" />
-						<div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='15' data-y='80' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none'
-							data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index: 2; white-space: nowrap;'>CHÀO MỪNG ĐẾN VỚI CHÚNG TÔI</div>
-						<div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='15' data-y='135' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none'
-							data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index: 3; white-space: nowrap;'>
-							<span>CỬA HÀNG</span> ĐỒ NỘI THẤT
-						</div>
-						<div class='tp-caption sfb  tp-resizeme ' data-x='15' data-y='360' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none'
-							data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index: 4; white-space: nowrap;'>
-							<a href='#' class="view-more">Xem thêm</a> <a href='#' class="buy-btn">Mua ngay</a>
-						</div></li>
+						
+							</c:forEach>
+				</c:if>
+					
 				</ul>
 				<div class="tp-bannertimer"></div>
 			</div>
@@ -149,11 +144,69 @@
 														<!--item-content-->
 													</div>
 													<!--info-inner-->
+													
+													<%
+														if(session.getAttribute("taikhoan")==null){
+													%>
 													<div class="actions">
-														<button type="button" title="Add to Cart" class="button btn-cart">
+														<button onclick="location.href = '${pageContext.request.contextPath }/furniture/login';"  type="button" title="Add to Cart" class="button btn-cart">
 															<span>Add to Cart</span>
 														</button>
 													</div>
+														<%
+														} else {
+														%>
+														<div class="actions">
+															<button id="new_addcart${sp.id}" type="button" title="Add to Cart" class="button btn-cart">
+																<span>Add to Cart</span>
+															</button>
+														</div>
+														<%
+														}
+														%>
+														
+													<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+													<script type="text/javascript">
+
+				
+													$('#new_addcart${sp.id}').click(function(){
+														var soluong = 1;
+														var id_sanpham = Number(${sp.id});
+														var gia = Number(${sp.giaKhuyenMai});
+														var hinhanh = "${sp.hinhAnh}";
+														var ten_sanPham = "${sp.tenSanPham}";
+														var id_user = Number(${taikhoan.id});
+														$.ajax({
+															url: '${pageContext.request.contextPath}/furniture/cartAjax',
+															type : 'POST',
+															cache : false,
+															data : {
+																
+																id_sanpham : id_sanpham,
+																ten_sanPham : ten_sanPham,
+																soluong :soluong,
+																hinhanh:hinhanh,
+																id_user :id_user
+															},
+														success : function(response) {
+															console.log(response);
+															/* location.reload(false);  */
+															
+															 $('#cart-total').html(response);
+															$('#cart-sidebar').load(" #cart-sidebar");
+															 
+														},
+														error: function(response)
+													    {
+															alert("Có lỗi xảy ra!");
+													    }
+														
+
+												});
+										return false;
+									});
+				</script>
+													
 													<!--actions-->
 													<div class="clearfix"></div>
 												</div>
@@ -202,7 +255,7 @@
 										<div class="item">
 
 											<div class="col-item">
-												<div class="new-label new-top-right">New</div>
+												<div class="new-label new-top-right">Hot</div>
 												<div class="images-container">
 													<a class="product-image" title="Sample Product" href="product_detail.html"> <img src="${pageContext.request.contextPath}/images/${sp.hinhAnh}" class="img-responsive" alt="a"
 														style="width: 500px; height: 180px;">
@@ -241,12 +294,67 @@
 														<!--item-content-->
 													</div>
 													<!--info-inner-->
+														<%
+														if(session.getAttribute("taikhoan")==null){
+													%>
 													<div class="actions">
-														<button type="button" title="Add to Cart" class="button btn-cart">
+														<button onclick="location.href = '${pageContext.request.contextPath }/furniture/login';"  type="button" title="Add to Cart" class="button btn-cart">
 															<span>Add to Cart</span>
 														</button>
 													</div>
+														<%
+														} else {
+														%>
+														<div class="actions">
+															<button id="hot_addcart${sp.id}" type="button" title="Add to Cart" class="button btn-cart">
+																<span>Add to Cart</span>
+															</button>
+														</div>
+														<%
+														}
+														%>
 													<!--actions-->
+													<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+														<script type="text/javascript">
+
+				
+													$('#hot_addcart${sp.id}').click(function(){
+														var soluong = 1;
+														var id_sanpham = Number(${sp.id});
+														var gia = Number(${sp.giaKhuyenMai});
+														var hinhanh = "${sp.hinhAnh}";
+														var ten_sanPham = "${sp.tenSanPham}";
+														var id_user = Number(${taikhoan.id});
+														$.ajax({
+															url: '${pageContext.request.contextPath}/furniture/cartAjax',
+															type : 'POST',
+															cache : false,
+															data : {
+																
+																id_sanpham : id_sanpham,
+																ten_sanPham : ten_sanPham,
+																soluong :soluong,
+																hinhanh:hinhanh,
+																id_user :id_user
+															},
+														success : function(response) {
+															console.log(response);
+															/* location.reload(false);  */
+															
+															 $('#cart-total').html(response);
+															$('#cart-sidebar').load(" #cart-sidebar");
+															 
+														},
+														error: function(response)
+													    {
+															alert("Có lỗi xảy ra!");
+													    }
+														
+
+												});
+										return false;
+									});
+				</script>
 													<div class="clearfix"></div>
 												</div>
 											</div>
@@ -284,8 +392,8 @@
 
 			<div id="recommend-slider" class="product-flexslider hidden-buttons">
 				<div class="slider-items slider-width-col3 owl-carousel owl-theme" style="opacity: 1; display: block;">
-					<c:if test="${not empty sanphammoiList }">
-						<c:forEach items="${sanphammoiList}" var="sp">
+					<c:if test="${not empty listKhuyenMai }">
+						<c:forEach items="${listKhuyenMai}" var="sp">
 							<!-- Item -->
 							<div class="owl-wrapper-outer">
 
@@ -294,7 +402,7 @@
 										<div class="item">
 
 											<div class="col-item">
-												<div class="new-label new-top-right">New</div>
+												<div class="new-label new-top-right">Sale</div>
 												<div class="images-container">
 													<a class="product-image" title="Sample Product" href="product_detail.html"> <img src="${pageContext.request.contextPath}/images/${sp.hinhAnh}" class="img-responsive" alt="a"
 														style="width: 500px; height: 180px;">
@@ -314,7 +422,7 @@
 												<div class="info">
 													<div class="info-inner">
 														<div class="item-title">
-															<a title=" Sample Product" href="product_detail.html"> ${sp.tenSanPham} </a>
+															<a  title=" Sample Product" href="product_detail.html"> ${sp.tenSanPham} </a>
 														</div>
 														<!--item-title-->
 														<div class="item-content">
@@ -325,19 +433,77 @@
 															</div>
 															<div class="price-box">
 																<p class="special-price">
-																	<span class="price"> <fmt:formatNumber type="number" groupingUsed="true" value="${sp.giaGoc} " />₫
+																	<span style="color: #777; text-decoration: line-through;" class="price"> <fmt:formatNumber type="number" groupingUsed="true" value="${sp.giaGoc} " />₫
 																	</span>
+																	<br>
+																	<span class="price"> <fmt:formatNumber type="number" groupingUsed="true" value="${sp.giaGoc-sp.giaKhuyenMai} " />₫
+																	
 																</p>
 															</div>
 														</div>
 														<!--item-content-->
 													</div>
 													<!--info-inner-->
+														<%
+														if(session.getAttribute("taikhoan")==null){
+													%>
 													<div class="actions">
-														<button type="button" title="Add to Cart" class="button btn-cart">
+														<button onclick="location.href = '${pageContext.request.contextPath }/furniture/login';"  type="button" title="Add to Cart" class="button btn-cart">
 															<span>Add to Cart</span>
 														</button>
 													</div>
+														<%
+														} else {
+														%>
+														<div class="actions">
+															<button id="news_addcart${sp.id }" type="button" title="Add to Cart" class="button btn-cart">
+																<span>Add to Cart</span>
+															</button>
+														</div>
+														<%
+														}
+														%>
+														<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+												<script type="text/javascript">
+
+				
+													$('#news_addcart${sp.id}').click(function(){
+														var soluong = 1;
+														var id_sanpham = Number(${sp.id});
+														var gia = Number(${sp.giaKhuyenMai});
+														var hinhanh = "${sp.hinhAnh}";
+														var ten_sanPham = "${sp.tenSanPham}";
+														var id_user = Number(${taikhoan.id});
+														$.ajax({
+															url: '${pageContext.request.contextPath}/furniture/cartAjax',
+															type : 'POST',
+															cache : false,
+															data : {
+																
+																id_sanpham : id_sanpham,
+																ten_sanPham : ten_sanPham,
+																soluong :soluong,
+																hinhanh:hinhanh,
+																id_user :id_user
+															},
+														success : function(response) {
+															console.log(response);
+															/* location.reload(false);  */
+															
+															 $('#cart-total').html(response);
+															$('#cart-sidebar').load(" #cart-sidebar");
+															 
+														},
+														error: function(response)
+													    {
+															alert("Có lỗi xảy ra!");
+													    }
+														
+
+												});
+										return false;
+									});
+				</script>
 													<!--actions-->
 													<div class="clearfix"></div>
 												</div>
@@ -422,201 +588,6 @@
 
 <!-- End banner section -->
 
-<!-- middle slider -->
-<section class="middle-slider container">
-	<div class="row">
-		<div class="col-sm-4 custom-slider">
-			<div>
-				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-					<!-- Indicators -->
-					<ol class="carousel-indicators">
-						<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-						<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-					</ol>
-
-					<!-- Wrapper for slides -->
-					<div class="carousel-inner" role="listbox">
-						<div class="item active">
-							<img src="${pageContext.request.contextPath}/resources/furniture/images/slide1.jpg" alt="slide1">
-							<div class="carousel-caption">
-								<h3>
-									<a href="product_detail.html" title=" Sample Product">Bộ sưu tập hot</a>
-								</h3>
-								<p>Những sản phẩm hot nhất hiện nay.</p>
-							</div>
-						</div>
-						<div class="item">
-							<img src="${pageContext.request.contextPath}/resources/furniture/images/slide2.jpg" alt="slide2">
-							<div class="carousel-caption">
-								<h3>
-									<a href="product_detail.html" title=" Sample Product">Bộ sư tập mùa hè</a>
-								</h3>
-								<p>Những sản phẩm dành riêng cho mùa hè.</p>
-							</div>
-						</div>
-						<div class="item">
-							<img src="${pageContext.request.contextPath}/resources/furniture/images/slide3.jpg" alt="slide3">
-							<div class="carousel-caption">
-								<h3>
-									<a href="product_detail.html" title=" Sample Product">Sản phẩm mới sắp tới</a>
-								</h3>
-								<p>Những sản phẩm sẽ được ra mắt trong thời gian sắp tới.</p>
-							</div>
-						</div>
-					</div>
-
-					<!-- Controls -->
-					<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span
-						class="sr-only">Previous</span>
-					</a> <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span
-						class="sr-only">Next</span>
-					</a>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-4 pro-block">
-			<div class="inner-div">
-				<h2 class="category-pro-title">
-					<span>Bộ siêu tập hàng đầu</span>
-				</h2>
-				<div class="category-products">
-					<div class="products small-list">
-						<div class="item">
-							<div class="item-area">
-								<div class="product-image-area">
-									<a href="#" class="product-image"> <img src="${pageContext.request.contextPath}/resources/furniture/products-images/product1.jpg" alt="products images">
-									</a>
-								</div>
-								<div class="details-area">
-									<h2 class="product-name">
-										<a href="#">Men Watch-Indigo</a>
-									</h2>
-									<div class="ratings">
-										<div class="rating-box">
-											<div class="rating"></div>
-										</div>
-									</div>
-									<div class="price-box">
-										<span class="regular-price"> <span class="price">$290.00</span>
-										</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-4 pro-block1">
-			<div class="inner-div1">
-				<h2 class="category-pro-title">
-					<span>Bộ siêu tập mới nhất</span>
-				</h2>
-				<div class="category-products">
-					<div class="products small-list">
-						<div class="item">
-							<div class="item-area">
-								<div class="product-image-area">
-									<a href="#" class="product-image"> <img src="${pageContext.request.contextPath}/resources/furniture/products-images/product21.jpg" alt="products images">
-									</a>
-								</div>
-								<div class="details-area">
-									<h2 class="product-name">
-										<a href="#">Jewellery Earring K3</a>
-									</h2>
-									<div class="ratings">
-										<div class="rating-box">
-											<div class="rating"></div>
-										</div>
-									</div>
-									<div class="price-box">
-										<p class="old-price">
-											<span class="price-label">Regular Price:</span> <span class="price"> $180.00 </span>
-										</p>
-										<p class="special-price">
-											<span class="price-label">Special Price</span> <span class="price"> $150.00 </span>
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- End middle slider -->
 
 
-<!-- Featured Slider -->
-<section class="featured-pro wow animated parallax parallax-2">
-	<div class="container">
-		<div class="std">
-			<div class="slider-items-products">
-				<div class="featured_title center">
-					<h2>Sản phẩm khuyến mãi</h2>
-				</div>
-				<div id="featured-slider" class="product-flexslider hidden-buttons">
-					<div class="slider-items slider-width-col4">
-						<!-- Item -->
-						<div class="item">
-							<div class="col-item">
-								<div class="sale-label sale-top-right">Sale</div>
-								<div class="images-container">
-									<a class="product-image" title="Sample Product" href="product_detail.html"> <img src="${pageContext.request.contextPath}/resources/furniture/products-images/product1.jpg"
-										class="img-responsive" alt="a" />
-									</a>
-									<div class="actions">
-										<div class="actions-inner">
-											<button type="button" title="Add to Cart" class="button btn-cart">
-												<span>Add to Cart</span>
-											</button>
-											<ul class="add-to-links">
-												<li><a href="#" title="Add to Wishlist" class="link-wishlist"><span>Add to Wishlist</span></a></li>
-												<li><a href="#" title="Add to Compare" class="link-compare "><span>Add to Compare</span></a></li>
-											</ul>
-										</div>
-									</div>
-									<div class="qv-button-container">
-										<a href="quick_view.html" class="qv-e-button btn-quickview-1"><span><span>Quick View</span></span></a>
-									</div>
-								</div>
-								<div class="info">
-									<div class="info-inner">
-										<div class="item-title">
-											<a title=" Sample Product" href="product_detail.html"> Sample Product </a>
-										</div>
-										<!--item-title-->
-										<div class="item-content">
-											<div class="ratings">
-												<div class="rating-box">
-													<div style="width: 60%" class="rating"></div>
-												</div>
-											</div>
-											<div class="price-box">
-												<p class="special-price">
-													<span class="price"> $45.00 </span>
-												</p>
-												<p class="old-price">
-													<span class="price-sep">-</span> <span class="price"> $50.00 </span>
-												</p>
-											</div>
-										</div>
-										<!--item-content-->
-									</div>
-									<!--info-inner-->
 
-									<div class="clearfix"></div>
-								</div>
-							</div>
-						</div>
-						<!-- End Item -->
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>

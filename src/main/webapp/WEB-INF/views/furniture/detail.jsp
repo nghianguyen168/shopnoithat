@@ -7,20 +7,23 @@
         <br>
           <div class="product-view wow">
             <div class="product-essential">
-              <form action="#" method="post" id="product_addtocart_form">
+              <form	 action="#" method="post" id="product_addtocart_form">
                 <div class="product-img-box col-lg-6 col-sm-6 col-xs-12">
                   <ul class="moreview" id="moreview" style="display: block; width: 561px; height: 542.873px;">
                     <li class="moreview_thumb thumb_1 moreview_thumb_active" style="display: list-item; opacity: 1; left: 115px; position: absolute; overflow: hidden; background-image: none;"> <img class="moreview_thumb_image" src="products-images/product1.jpg" style="display: inline; width: 444px; height: 540.873px; opacity: 1;"> <img class="moreview_source_image" src="products-images/product2.jpg" alt=""> <span class="roll-over">Roll over image to zoom in</span> <img style="position: absolute;" class="zoomImg" src="products-images/product3.jpg">
                     
                     <img src="${pageContext.request.contextPath}/images/${sanpham.hinhAnh}" class="zoomImg" style="position: absolute; top: -306.435px; left: -203.314px; width: 700px; height: 850px; border: none; "></li>
-                    <c:forEach var="ha" items="${sanpham.hinhAnh_MoTa}">
-                    	
-                    </c:forEach>
-                    <c:forEach var="ha" items="${sanpham.hinhAnh_MoTa}">
-                    <li class="moreview_thumb thumb_2" style="display: none; left: 115px; position: absolute; overflow: hidden; background-image: none;"> <img class="moreview_thumb_image" src="products-images/product4.jpg" style="display: inline; width: 444px; height: 540.873px;"> <img class="moreview_source_image" src="products-images/product4.jpg" alt=""> <span class="roll-over">Roll over image to zoom in</span> <img style="position: absolute;" class="zoomImg" src="images/product4.jpg"><img src="file:///C:/Users/Nghia/Downloads/Desktop/giao%20di%E1%BB%87n%20ng%C6%B0%E1%BB%9Di%20d%C3%B9ng/furniture/products-images/product4.jpg" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 700px; height: 850px; border: none; max-width: none;"></li>
-     				</c:forEach>
-                  <li class="moreview_magnifier" style="margin: 0px; padding: 0px; left: 115px; top: -0.127273px; display: none;"><div style="margin: 0px; padding: 0px; width: 444px; height: 541px;"><img src="file:///C:/Users/Nghia/Downloads/Desktop/giao%20di%E1%BB%87n%20ng%C6%B0%E1%BB%9Di%20d%C3%B9ng/furniture/products-images/product1.jpg" style="margin: 0px; padding: 0px; width: 444px; height: 540.873px; display: inline; left: 0px; top: 0.127273px;"></div></li><li class="moreview_icon" style="opacity: 1;">&nbsp;</li><li class="moreview_zoom_area" style="margin: 0px; opacity: 0; left: 571px; display: none; background-image: none;"><div class="moreview_description" style="width: 42.0896px; bottom: 0px; left: 0px; opacity: 0.7; display: none;"></div><div style="width: 82.0896px; height: 100px;"><img class="moreview_zoom_img" src="products-images/product2.jpg" style="width: 82.0896px; height: 100px; left: 0px; top: 0.023531px;"></div></li><li class="moreview_small_thumbs" style="top: 0px; height: 542.873px;"><ul style="height: 1204px;"><li class="moreview_smallthumb_first moreview_smallthumb_navtoend vertical" style="opacity: 0.4; margin: 0px 0px 10px;"><img class="moreview_small_thumb" src="file:///C:/Users/Nghia/Downloads/Desktop/giao%20di%E1%BB%87n%20ng%C6%B0%E1%BB%9Di%20d%C3%B9ng/furniture/products-images/product8.jpg" height="126" style="width: 103px; height: 126px;"></li><li class="moreview_smallthumb_active vertical" style="opacity: 1; margin: 0px 0px 10px;"><img class="moreview_small_thumb" src="file:///C:/Users/Nghia/Downloads/Desktop/giao%20di%E1%BB%87n%20ng%C6%B0%E1%BB%9Di%20d%C3%B9ng/furniture/products-images/product1.jpg" height="126" style="width: 103px; height: 126px;"></li><li class="vertical" style="opacity: 0.4; margin: 0px 0px 10px;"><img class="moreview_small_thumb" src="file:///C:/Users/Nghia/Downloads/Desktop/giao%20di%E1%BB%87n%20ng%C6%B0%E1%BB%9Di%20d%C3%B9ng/furniture/products-images/product4.jpg" height="126" style="width: 103px; height: 126px;"></li><li class="moreview_smallthumb_last vertical" style="opacity: 0.4; margin: 0px 0px 10px;"><img class="moreview_small_thumb" src="file:///C:/Users/Nghia/Downloads/Desktop/giao%20di%E1%BB%87n%20ng%C6%B0%E1%BB%9Di%20d%C3%B9ng/furniture/products-images/product5.jpg" height="126" style="width: 103px; height: 126px;"></li><li class="vertical" style="opacity: 0.4; margin: 0px 0px 10px;"><img class="moreview_small_thumb" src="file:///C:/Users/Nghia/Downloads/Desktop/giao%20di%E1%BB%87n%20ng%C6%B0%E1%BB%9Di%20d%C3%B9ng/furniture/products-images/product6.jpg" height="126" style="width: 103px; height: 126px;"></li><li class="vertical" style="opacity: 0.4; margin: 0px 0px 10px;"><img class="moreview_small_thumb" src="file:///C:/Users/Nghia/Downloads/Desktop/giao%20di%E1%BB%87n%20ng%C6%B0%E1%BB%9Di%20d%C3%B9ng/furniture/products-images/product7.jpg" height="126" style="width: 103px; height: 126px;"></li><li class="vertical" style="opacity: 0.4; margin: 0px 0px 10px;"><img class="moreview_small_thumb" src="file:///C:/Users/Nghia/Downloads/Desktop/giao%20di%E1%BB%87n%20ng%C6%B0%E1%BB%9Di%20d%C3%B9ng/furniture/products-images/product8.jpg" height="126" style="width: 103px; height: 126px;"></li><li class="moreview_smallthumb_navtostart vertical" style="opacity: 0.4; margin: 0px 0px 10px;"><img class="moreview_small_thumb" src="file:///C:/Users/Nghia/Downloads/Desktop/giao%20di%E1%BB%87n%20ng%C6%B0%E1%BB%9Di%20d%C3%B9ng/furniture/products-images/product1.jpg" height="126" style="width: 103px; height: 126px;"></li></ul></li></ul>
+                   
+                    <c:forEach var="i" begin="0" end="4" step="1">
+                    	<li class="moreview_thumb thumb_2" style="display: none; left: 115px; position: absolute; overflow: hidden; background-image: none;">
+                    	 <img class="moreview_thumb_image" src="${pageContext.request.contextPath}/images/${hinhanh_Mota[i]}" style="display: inline; width: 444px; height: 540.873px;"> <img class="moreview_source_image" src="products-images/product4.jpg" alt="">
+                    	  <span class="roll-over">Roll over image to zoom in</span> <img style="position: absolute;" class="zoomImg" src="images/product4.jpg">
+                    	  <img src="${pageContext.request.contextPath}/images/${hinhanh_Mota[i]}" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 700px; height: 850px; border: none; max-width: none;"></li>
+     				
+                  	<li class="moreview_smallthumb_last vertical" style="opacity: 0.4; margin: 0px 0px 10px;">
+                  		<img class="moreview_small_thumb" src="${pageContext.request.contextPath}/images/${hinhanh_Mota[i]}" height="126" style="width: 103px; height: 126px;"></li>
                   <div class="moreview-control"> <a style="right: 47.5px;" href="javascript:void(0)" class="moreview-prev"></a> <a style="right: 47.5px;" href="javascript:void(0)" class="moreview-next"></a> </div>
+                	</c:forEach>
                 </div>
                 
                 <!-- end: more-images -->
@@ -28,7 +31,7 @@
                 <div class="product-shop col-lg-6 col-sm-6 col-xs-12">
                   <div class="product-next-prev"> <a class="product-next" href="#"><span></span></a> <a class="product-prev" href="#"><span></span></a> </div>
                   <div class="product-name">
-                    <h1>${sanpham.tenSanPham }</h1>
+                    <h1 id="tensp">${sanpham.tenSanPham }</h1>
                   </div>
                   <div class="ratings">
                     <div class="rating-box">
@@ -51,16 +54,58 @@
                   </div>
                   <div class="add-to-box">
                     <div class="add-to-cart">
-                      <label for="qty">Quantity:</label>
+                      <label for="qty">Số lượng: <span>(Còn ${sanpham.soLuongTon } trong kho)</span></label>
                       <div class="pull-left">
                         <div class="custom pull-left">
-                          <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items-count" type="button"><i class="icon-plus">&nbsp;</i></button>
-                          <input type="text" class="input-text qty" title="Qty" value="1" maxlength="${sanpham.soLuongTon }" id="qty" name="qty">
-                          <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty > 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="icon-minus">&nbsp;</i></button>
+                        <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty > 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="icon-minus">&nbsp;</i></button>
+                          <input type="number" class="input-text qty" title="Qty" value="1" maxlength="${sanpham.soLuongTon }" id="qty" name="qty">
+                          <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty < ${sanpham.soLuongTon}) result.value++;return false;" class="increase items-count" type="button"><i class="icon-plus">&nbsp;</i></button>
                         </div>
                       </div>
-                      <button onclick="productAddToCartForm.submit(this)" class="button btn-cart" title="Add to Cart" type="button"><span><i class="icon-basket"></i> Add to Cart</span></button>
+                      <button  id="addCart_detail" class="button btn-cart" title="Add to Cart" type="button"><span><i class="icon-basket"></i> Add to Cart</span></button>
+                    
                     </div>
+                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+                    <script type="text/javascript">
+
+				
+													$('#addCart_detail').click(function(){
+														var soluong = 	 $('#qty').val();
+														var id_sanpham = Number(${sanpham.id});
+														var gia = Number(${sanpham.giaKhuyenMai});
+														var hinhanh = "${sanpham.hinhAnh}";
+														var ten_sanPham = $('#tensp').text();
+														var id_user = Number(${taikhoan.id});
+														$.ajax({
+															url: '${pageContext.request.contextPath}/furniture/cartAjax',
+															type : 'POST',
+															cache : false,
+															data : {
+																
+																id_sanpham : id_sanpham,
+																ten_sanPham : ten_sanPham,
+																soluong :soluong,
+																hinhanh:hinhanh,
+																id_user :id_user
+															},
+														success : function(response) {
+															console.log(response);
+															/* location.reload(false);  */
+															
+															 $('#cart-total').html(response);
+															$('#cart-sidebar').load(" #cart-sidebar");
+															 
+														},
+														error: function(response)
+													    {
+															alert("Có lỗi xảy ra!");
+													    }
+														
+
+												});
+										return false;
+									});
+				</script>
                     <div class="email-addto-box">
                       <ul class="add-to-links">
                         <li> <a class="link-wishlist" href="#"><span>Add to Wishlist</span></a></li>
@@ -76,7 +121,7 @@
             <div class="product-collateral">
               <div class="col-sm-12 wow">
                 <ul id="product-detail-tab" class="nav nav-tabs product-tabs">
-                  <li class="active"> <a href="#product_tabs_description" data-toggle="tab"> Product Description </a> </li>
+                  <li class="active"> <a href="#product_tabs_description" data-toggle="tab"> Mô tả chi tiết </a> </li>
                   <li><a href="#product_tabs_tags" data-toggle="tab">Tags</a></li>
                   <li> <a href="#reviews_tabs" data-toggle="tab">Reviews</a> </li>
                   <li> <a href="#product_tabs_custom" data-toggle="tab">Custom Tab</a> </li>
@@ -85,7 +130,7 @@
                 <div id="productTabContent" class="tab-content">
                   <div class="tab-pane fade in active" id="product_tabs_description">
                     <div class="std">
-						<p>${sanpham.moTaSanPham }</p>
+						<p>${sanpham.moTaChiTiet }</p>
                     </div>
                   </div>
                   <div class="tab-pane fade" id="product_tabs_tags">

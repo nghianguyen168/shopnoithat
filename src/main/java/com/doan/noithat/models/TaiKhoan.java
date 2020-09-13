@@ -10,8 +10,11 @@ import lombok.NoArgsConstructor;
 public class TaiKhoan {
 
 	private int id;
-	private String taiKhoan;
+	private String username;
+	private String hoTen;
 	private String matKhau;
+	private String email;
+	private String phone;
 	private String phanQuyen;
 
 }

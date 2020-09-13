@@ -92,8 +92,8 @@ public class AdminSanPhamController {
 	            for (MultipartFile multipartFile : files) {
 	 
 	                String fileName1 = multipartFile.getOriginalFilename();
-	                fileNames = fileNames + "/"+fileName1;
-	                File imageFile = new File(servletRequest.getServletContext().getRealPath("/anhmota"), fileName1);
+	                fileNames = fileNames + "|"+fileName1;
+	                File imageFile = new File(servletRequest.getServletContext().getRealPath("/uploads"), fileName1);
 	                System.out.println(imageFile);
 	                try
 	                {
@@ -130,6 +130,7 @@ public class AdminSanPhamController {
 
 	@GetMapping({ "/edit/{id}", "/edit" })
 	public String edit(@PathVariable(value = "id") int id, Model model) {
+		
 		List<DanhMucSanPham> listDanhMuc = danhMucSanPhamService.findAll();
 		List<NhaCungCap> listNhaCungCap = nhaCungCapService.findAll();
 		SanPham sanPhamItem = sanPhamService.findOne(id);
@@ -143,9 +144,17 @@ public class AdminSanPhamController {
 	public String editSP(@ModelAttribute("sanPham") SanPham sanPham, @RequestParam("hinhanh") MultipartFile hinhAnh,
 			@PathVariable(value = "id") int id, Model model, HttpServletRequest request)
 			throws IllegalStateException, IOException {
-		String fileName = FileUtil.upload(hinhAnh, request);
+		String image="";
+		String image_old=sanPhamService.findOne(id).getHinhAnh();
+		if("".equals(hinhAnh.getOriginalFilename())) {
+			image=image_old;
+		} else {
+			FileUtil.delete(image_old, request);
+			image =FileUtil.upload(hinhAnh, request);
+		}
+	
 		sanPham.setId(id);
-		sanPham.setHinhAnh(fileName);
+		sanPham.setHinhAnh(image);
 		sanPhamService.edit(sanPham);
 		model.addAttribute("listSanPham", sanPhamService.findAll());
 		return "redirect:/admin/sanpham/index";

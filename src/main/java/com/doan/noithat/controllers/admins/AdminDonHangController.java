@@ -20,9 +20,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.doan.noithat.constants.GlobalsConstant;
+import com.doan.noithat.models.ChiTietDonHang;
 import com.doan.noithat.models.DonHang;
 import com.doan.noithat.models.HinhThucThanhToan;
 import com.doan.noithat.models.KhachHang;
+import com.doan.noithat.services.ChiTietDonHangService;
 import com.doan.noithat.services.DonHangService;
 import com.doan.noithat.services.HinhThucThanhToanService;
 import com.doan.noithat.services.KhachHangService;
@@ -41,6 +43,9 @@ public class AdminDonHangController {
 	@Autowired
 	private KhachHangService khachHangSerivce;
 
+	@Autowired
+	private ChiTietDonHangService chiTietDonHangService;
+	
 	@GetMapping({ "index", "/index/{page}" })
 	public String index(Model model, @PathVariable(required = false, name = "page") Integer page) {
 		if (page == null) {
@@ -95,5 +100,7 @@ public class AdminDonHangController {
 		return "admin.donhang.add";
 
 	}
+	
+	
 
 }

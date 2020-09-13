@@ -12,29 +12,12 @@ import lombok.NoArgsConstructor;
 public class ChiTietDonHang {
 
 	private int id;
-	private String ma;
+	private int id_SanPham;
 	private SanPham sanPham;
-	private int idSanPham;
-	private int soLuong;
-	private BigDecimal tongTien;
-	private int trangThai;
-	public ChiTietDonHang(int id, String ma, int idSanPham, int soLuong, BigDecimal tongTien, int trangThai) {
-		super();
-		this.id = id;
-		this.ma = ma;
-		this.idSanPham = idSanPham;
-		this.soLuong = soLuong;
-		this.tongTien = tongTien;
-		this.trangThai = trangThai;
-	}
-	public ChiTietDonHang(int id, String ma, SanPham sanPham, int soLuong, BigDecimal tongTien, int trangThai) {
-		super();
-		this.id = id;
-		this.ma = ma;
-		this.sanPham = sanPham;
-		this.soLuong = soLuong;
-		this.tongTien = tongTien;
-		this.trangThai = trangThai;
-	}
+	private BigDecimal gia;
+	private int soluong;
+	private int id_NguoiDung;
+	private int id_DonHang;
+	private int trang_thai;
 
 }

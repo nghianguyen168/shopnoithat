@@ -180,6 +180,13 @@
             <artifactId>spring-security-taglibs</artifactId>
             <version>4.0.4.RELEASE</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.paypal.sdk/rest-api-sdk -->
+		<dependency>
+		    <groupId>com.paypal.sdk</groupId>
+		    <artifactId>rest-api-sdk</artifactId>
+		    <version>1.14.0</version>
+		</dependency>
+        
 	</dependencies>
 	<build>
 		<finalName>noithat</finalName>

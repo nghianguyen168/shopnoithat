@@ -10,6 +10,7 @@ public interface TaiKhoanService {
 	List<TaiKhoan> findAll();
 	
 	int add(TaiKhoan taiKhoan);
+	int add_user(TaiKhoan taiKhoan);
 	
 	
 	int del(int id);

@@ -20,6 +20,7 @@
 <script src="<spring:url value="/resources/admin/js/ace-extra.min.js"/>"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="<spring:url value="/resources/admin/ckeditor/ckeditor.js"/>"></script>
+<script type="text/javascript" src="<spring:url value="/resources/admin/ckfinder/ckfinder.js"/>"></script>
 
 </head>
 

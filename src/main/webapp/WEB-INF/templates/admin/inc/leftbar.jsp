@@ -31,6 +31,8 @@
 		</a> <b class="arrow"></b></li>
 		<li class=""><a href="${contextPath}/hinhthuctt/index"> <i class="fa fa-cogs"></i> <span class="menu-text">Quản lý hình thức TT</span>
 		</a> <b class="arrow"></b></li>
+		<li class=""><a href="${contextPath}/banner/index"> <i class="fa fa-cogs"></i> <span class="menu-text">Quản lý Banner</span>
+		</a> <b class="arrow"></b></li>
 
 
 	</ul>

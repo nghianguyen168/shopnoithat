@@ -26,6 +26,12 @@ public interface SanPhamService {
 	
 	List<SanPham> findNew();
 	
+	List<SanPham> findDiscount();
+	
 	List<SanPham> find_by_cat(int offset, int limit,int catId);
 	List<SanPham> find_by_cat_All(int catId);
+	
+	int update_quanlity(int id_sanPham,int soluong_dat);
+	
 }
+

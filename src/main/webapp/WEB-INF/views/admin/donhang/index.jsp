@@ -27,7 +27,7 @@
 							<th class="sorting" tabindex="0" aria-controls="dynamic-table" rowspan="1" colspan="1" aria-label="Domain: activate to sort column ascending">Mã đơn hàng</th>
 							<th class="sorting" tabindex="0" aria-controls="dynamic-table" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">Tên khách hàng</th>
 							<th class="hidden-480 sorting" tabindex="0" aria-controls="dynamic-table" rowspan="1" colspan="1" aria-label="Clicks: activate to sort column ascending">Tổng</th>
-							<th class="sorting" tabindex="0" aria-controls="dynamic-table" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">Mã</th>
+							<th class="sorting" tabindex="0" aria-controls="dynamic-table" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">Ngày đặt</th>
 							<th class="sorting" tabindex="0" aria-controls="dynamic-table" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">Số điện thoại</th>
 							<th class="sorting" tabindex="0" aria-controls="dynamic-table" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">Email</th>
 							<th class="sorting" tabindex="0" aria-controls="dynamic-table" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">Địa chỉ</th>
@@ -50,7 +50,8 @@
 									<td>${dh.id}</td>
 									<td>${dh.khachHang.hoTen}</td>
 									<td>${dh.tong}</td>
-									<td>${dh.ma}</td>
+									<fmt:formatDate value="${dh.ngayDat }" pattern="dd-MM-yyyy" var="ngaydat"/>
+									<td>${ngaydat}</td>
 									<td>${dh.sdtNguoiMua}</td>
 									<td>${dh.emailNguoiMua}</td>
 									<td>${dh.diaChiNguoiMua}</td>

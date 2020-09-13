@@ -117,6 +117,14 @@
 					</span>
 				</div>
 			</div>
+				<div class="form-group has-success">
+			<label for="inputWarning" class="col-xs-12 col-sm-3 control-label no-padding-right">Mô tả chi tiết :</label>
+
+			<div class="col-xs-12 col-sm-5">
+				<span class="block input-icon input-icon-right"> <textarea id="description_detail" name="moTaChiTiet" class="width-100" required>${sanPhamItem.moTaChiTiet}</textarea>
+				</span>
+			</div>
+		</div>
 			<div class="clearfix form-actions" style="text-align: center;">
 				<div class="card-footer">
 					<button type="submit" class="btn btn-primary btn-sm">
@@ -129,10 +137,15 @@
 					</a>
 				</div>
 			</div>
+			
 		</form>
 	</c:if>
 
 </div>
 <script>
-	CKEDITOR.replace('description');
+	var ckeditor=CKEDITOR.replace('description');
+	CKFinder.setupCKEditor(ckeditor,'${pageContext.request.contextPath}/resources/admin/ckfinder/');
+	
+	var ckeditor_detail=CKEDITOR.replace('description_detail');
+	CKFinder.setupCKEditor(ckeditor_detail,'${pageContext.request.contextPath}/resources/admin/ckfinder/');
 </script>

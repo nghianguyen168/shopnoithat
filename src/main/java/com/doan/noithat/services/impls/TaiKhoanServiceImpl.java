@@ -48,4 +48,10 @@ public class TaiKhoanServiceImpl implements TaiKhoanService {
 		// TODO Auto-generated method stub
 		return taiKhoanDAO.findByUsername(username);
 	}
+
+	@Override
+	public int add_user(TaiKhoan taiKhoan) {
+		// TODO Auto-generated method stub
+		return taiKhoanDAO.add_user(taiKhoan);
+	}
 }
