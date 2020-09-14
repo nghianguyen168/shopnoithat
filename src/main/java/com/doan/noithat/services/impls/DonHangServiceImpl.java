@@ -63,4 +63,22 @@ public class DonHangServiceImpl implements DonHangService {
 		// TODO Auto-generated method stub
 		return donHangDAO.don_Hang_User(taiKhoan);
 	}
+
+	@Override
+	public int check_don_moi() {
+		// TODO Auto-generated method stub
+		return donHangDAO.check_don_moi();
+	}
+
+	@Override
+	public int confirm_nhanhang(int id) {
+		// TODO Auto-generated method stub
+		return donHangDAO.confirm_nhanhang(id);
+	}
+
+	@Override
+	public int cancel_order(int id) {
+		// TODO Auto-generated method stub
+		return donHangDAO.cancel_order(id);
+	}
 }

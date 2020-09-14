@@ -9,9 +9,41 @@
 			<div id="dynamic-table_wrapper" class="dataTables_wrapper form-inline no-footer">
 				<div class="row">
 					<div class="col-xs-12">
+						<button id="checkdon" type="button" class="btn btn-success">Đã check đơn</button>
 						<div id="dynamic-table_filter" class="dataTables_filter">
 							<label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="dynamic-table"></label>
 						</div>
+						<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+                    <script type="text/javascript">
+
+				
+													$('#checkdon').click(function(){
+														
+														$.ajax({
+															url: '${pageContext.request.contextPath}/admin/donhang/check',
+															type : 'POST',
+															cache : false,
+															data : {
+																
+															},
+															success : function(response) {
+															console.log(response);
+															/* location.reload(false);  */
+															
+															
+															$('#dynamic-table').load(" #dynamic-table");
+															 
+														},
+														error: function(response)
+													    {
+															alert("Có lỗi xảy ra!");
+													    }
+														
+
+												});
+										return false;
+									});
+				</script>
 					</div>
 				</div>
 				<c:if test="${not empty msg}">
@@ -19,6 +51,7 @@
 						<a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a> <strong>${msg}</strong>
 					</div>
 				</c:if>
+			
 				<table id="dynamic-table" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="dynamic-table_info">
 					<thead>
 						<tr role="row">
@@ -33,6 +66,7 @@
 							<th class="sorting" tabindex="0" aria-controls="dynamic-table" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">Địa chỉ</th>
 							<th class="sorting" tabindex="0" aria-controls="dynamic-table" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">Hình thức TT</th>
 							<th class="sorting" tabindex="0" aria-controls="dynamic-table" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">Trạng thái đơn hàng</th>
+							<th class="sorting" tabindex="0" aria-controls="dynamic-table" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">Check đơn mới</th>
 							<th class="sorting_disabled" rowspan="1" colspan="1" aria-label=""></th>
 						</tr>
 					</thead>
@@ -56,8 +90,28 @@
 									<td>${dh.emailNguoiMua}</td>
 									<td>${dh.diaChiNguoiMua}</td>
 									<td>${dh.hinhThucThanhToan.hinhThucTT}</td>
-									<td>${dh.trangThaiDonHang}</td>
-
+								
+									<c:set var="trangthai" value="" />
+									<c:choose>
+										<c:when test="${dh.trangThaiDonHang==1}">
+											<c:set var="trangthai" value="Đơn mới" />
+											<td><span class="label label-sm label-warning">${trangthai}</span></td>
+										</c:when>
+										<c:when test="${dh.trangThaiDonHang==2}">
+											<c:set var="trangthai" value="Đơn đã xác nhận" />
+											<td><span class="label label-sm label-info arrowed arrowed-righ">${trangthai}</span></td>
+										</c:when>
+										<c:when test="${dh.trangThaiDonHang==3}">
+											<c:set var="trangthai" value="Đơn đã giao" />
+											<td><span class="label label-sm label-success">${trangthai}</span></td>
+										</c:when>
+										<c:when test="${dh.trangThaiDonHang==0}">
+											<c:set var="trangthai" value="Hủy bởi khách hàng" />
+											<td><span class="label label-sm label-inverse arrowed-in">${trangthai}</span></td>
+										</c:when>
+										
+									</c:choose>
+										
 									<td>
 										<div class="hidden-sm hidden-xs action-buttons">
 											<a href="${detail}"><i class="ace-icon fa fa-search-plus bigger-130"></i></a> <a class="green" href="${urlEdit}"> <i class="ace-icon fa fa-pencil bigger-130"></i>

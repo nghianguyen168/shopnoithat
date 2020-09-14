@@ -24,4 +24,7 @@ public interface DonHangService {
 	
 	List<DonHang> find_By_User(TaiKhoan taiKhoan);
 	
+	int check_don_moi();
+	int confirm_nhanhang(int id);
+	int cancel_order(int id);
 }

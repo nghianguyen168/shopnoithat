@@ -402,5 +402,27 @@ public class FurnituresController {
 		model.addAttribute("ctList", ctList);
 		return "furniture.order";
 	}
+	
+	@PostMapping("purchase/confirm")
+	public @ResponseBody String confirm_nhandon(@RequestParam("id_donhang") int id_donhang) {
+		int confirm_nhanhang = donHangService.confirm_nhanhang(id_donhang);
+		if(confirm_nhanhang>0) {
+			return "success";
+		}else {
+			return "";
+		}
+		
+	}
+	
+	@PostMapping("purchase/cancel")
+	public @ResponseBody String cancel_order(@RequestParam("id_donhang") int id_donhang) {
+		int can_cel = donHangService.cancel_order(id_donhang);
+		if(can_cel>0) {
+			return "success";
+		}else {
+			return "";
+		}
+		
+	}
 
 }

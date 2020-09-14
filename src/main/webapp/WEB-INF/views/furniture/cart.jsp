@@ -147,8 +147,9 @@
 										src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 									<script type="text/javascript">
 			
-							
-																$('#xoa_sp_cart${cart.giohang_id}').click(function(){
+									window.document_clicked = false;
+											$(document).on('click','#xoa_sp_cart${cart.giohang_id}',function(e){
+															
 																	
 																	var id_item_cart = Number(${cart.giohang_id});
 												
@@ -163,7 +164,7 @@
 																		},
 																	success : function(response) {
 																		console.log(response);
-																		location.reload(false);
+																	
 																		
 																		$('#cart-total').html(response);
 																		$('#shopping-cart-table').load(" #shopping-cart-table");

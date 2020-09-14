@@ -8,14 +8,14 @@
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
 								<div class="space-6"></div>
-
+							
 								<div class="row">
 									<div class="col-sm-10 col-sm-offset-1">
 										<div class="widget-box transparent">
 											<div class="widget-header widget-header-large">
 												<h3 class="widget-title grey lighter">
 													<i class="ace-icon fa fa-leaf green"></i>
-													Chi tiết hóa đơn
+													Chi tiết hóa đơn - House Furniture
 												</h3>
 
 												<div class="widget-toolbar no-border invoice-info">
@@ -23,12 +23,13 @@
 													<span class="red">#${donhang.id }</span>
 
 													<br>
+													<fmt:formatDate value="${donhang.ngayDat }" var="ngaydat" pattern="dd-MM-yyyy"/>
 													<span class="invoice-info-label">Ngày:</span>
-													<span class="blue">${donhang.ngayDat }</span>
+													<span class="blue">${ngaydat }</span>
 												</div>
 
 												<div class="widget-toolbar hidden-480">
-													<a href="#">
+													<a href="#" onclick="window.print()">
 														<i class="ace-icon fa fa-print"></i>
 													</a>
 												</div>
@@ -49,7 +50,7 @@
 															<div>
 																<ul class="list-unstyled  spaced">
 																	<li>
-																		<i class="ace-icon fa fa-caret-right green"></i>Họ tên KH: ${donhang.HoTen }
+																		<i class="ace-icon fa fa-caret-right green"></i>Họ tên KH: ${donhang.hoTen }
 																	</li>
 
 																	<li>
@@ -79,30 +80,34 @@
 																<tr>
 																	<th class="center">#</th>
 																	<th>Tên sản phẩm</th>
-																	<th class="hidden-xs">Số lượng</th>
-																	<th class="hidden-480">Giá(Đã trừ KM)</th>
+																	<th class="">Số lượng</th>
+																	<th class="">Giá(Đã trừ KM)</th>
 																	<th>Tổng</th>
 																</tr>
 															</thead>
 
 															<tbody>
+															
 															<c:if test="${listOrder ne null }">
-																<c:forEach items="${listOrder }" var="order" varStatus="num" begin="1">
+																<c:forEach items="${listOrder }" var="order" varStatus="stt" >
+																	<tr>
+																		<td class="center">${stt.index+1}</td>
+	
+																		<td>
+																			<a href="#">${order.sanPham.tenSanPham }</a>
+																		</td>
+																		<td class="">
+																			${order.soluong }
+																		</td>
+																		<fmt:formatNumber currencySymbol="VNĐ" type="number" var="gia" value="${order.gia}" />
+																		<td class=""> ${gia } </td>
+																		
+																		
+																		<fmt:formatNumber currencySymbol="VNĐ" type="number" var="tong" value="${order.gia * order.soluong}" />
+																		<td>${tong}</td>
+																	</tr>
 																
-																
-																<tr>
-																	<td class="center">${num}</td>
-
-																	<td>
-																		<a href="#">${order.sanPham.tenSanPham }</a>
-																	</td>
-																	<td class="hidden-xs">
-																		${order.soluong }
-																	</td>
-																	<td class="hidden-480"> --- </td>
-																	<td>$10</td>
-																</tr>
-</c:forEach>
+                                                             </c:forEach>
 															</c:if>
 															
 															</tbody>
@@ -114,8 +119,9 @@
 													<div class="row">
 														<div class="col-sm-5 pull-right">
 															<h4 class="pull-right">
+															<fmt:formatNumber currencySymbol="VNĐ" type="number" var="tongtien" value="${donhang.tong}" />
 																Tổng giá trị đơn hàng :
-																<span class="red">$395</span>
+																<span class="red">${tongtien}</span>
 															</h4>
 														</div>
 														<div class="col-sm-7 pull-left"> Thông tin bổ sung </div>

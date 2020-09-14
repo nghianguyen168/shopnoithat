@@ -15,7 +15,7 @@ public class DonHang {
 	private KhachHang khachHang;
 	private int idKhachHang;
 	private String tong;
-	private String HoTen;
+	private String hoTen;
 	private int sdtNguoiMua;
 	private String emailNguoiMua;
 	private String diaChiNguoiMua;
@@ -30,7 +30,7 @@ public class DonHang {
 		this.id = id;
 		this.idKhachHang = idKhachHang;
 		this.tong = tong;
-		this.HoTen = HoTen;
+		this.hoTen = HoTen;
 		this.sdtNguoiMua = sdtNguoiMua;
 		this.emailNguoiMua = emailNguoiMua;
 		this.diaChiNguoiMua = diaChiNguoiMua;
@@ -44,7 +44,7 @@ public class DonHang {
 		this.id = id;
 		this.khachHang = khachHang;
 		this.tong = tong;
-		this.HoTen = HoTen;
+		this.hoTen = HoTen;
 		this.sdtNguoiMua = sdtNguoiMua;
 		this.emailNguoiMua = emailNguoiMua;
 		this.diaChiNguoiMua = diaChiNguoiMua;

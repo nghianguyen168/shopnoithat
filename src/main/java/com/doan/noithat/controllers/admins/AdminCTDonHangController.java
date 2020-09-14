@@ -34,6 +34,7 @@ public class AdminCTDonHangController {
 		DonHang donhhang = donHangService.findOne(id);
 		List<ChiTietDonHang> listOrder = chiTietDonHangService.findAllByOrder(id);
 		System.out.println(donhhang.getDiaChiNguoiMua());
+		
 		model.addAttribute("donhang", donhhang);
 		model.addAttribute("listOrder", listOrder);
 		return "admin.donhang.detail";

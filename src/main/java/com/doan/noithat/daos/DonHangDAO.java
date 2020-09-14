@@ -35,7 +35,9 @@ public class DonHangDAO {
 	private static final String DEL_DONHANG = "DELETE FROM donhang WHERE ID = ?";
 	private static final String TOTAL_ROW = "SELECT COUNT(*) AS totalRow FROM donhang ";
 	private static final String ADD_ORDER ="INSERT INTO donhang(ID,IDKhachHang,Tong,HoTen,SDTNguoiMua,EmailNguoiMua,DiaChiNguoiMua,IDHinhThucTT,TrangThaiDonHang) VALUES(?,?,?,?,?,?,?,?,?)";
-
+	private static final String CHECK_NEW_ORDER="UPDATE donhang SET TrangThaiDonHang=2 WHERE TrangThaiDonHang=1";
+	private static final String CONFIRM_NHANDON="UPDATE donhang SET TrangThaiDonHang=3 WHERE TrangThaiDonHang=2 AND ID=?";
+	private static final String CANCEL_ORDER ="UPDATE donhang SET TrangThaiDonHang=0 WHERE TrangThaiDonHang=2 AND ID=?";
 
 	public List<DonHang> findAll() {
 		return jdbcTemplate.query(SQL_FIND_ALL, new ResultSetExtractor<List<DonHang>>() {
@@ -59,6 +61,16 @@ public class DonHangDAO {
 	
 	public List<DonHang> don_Hang_User(TaiKhoan taiKhoan){
 		return jdbcTemplate.query(FIND_BY_USER, new BeanPropertyRowMapper<>(DonHang.class),taiKhoan.getId());
+	}
+	
+	public int check_don_moi() {
+		return jdbcTemplate.update(CHECK_NEW_ORDER);
+	}
+	public int confirm_nhanhang(int id) {
+		return jdbcTemplate.update(CONFIRM_NHANDON,id);
+	}
+	public int cancel_order(int id) {
+		return jdbcTemplate.update(CANCEL_ORDER,id);
 	}
 	public int add_order(TaiKhoan taiKhoan,ThongTinDatHang thongTinDatHang,int soluong,int hinhthuc_tt,int id_donhang) {
 		return jdbcTemplate.update(ADD_ORDER,id_donhang,taiKhoan.getId(),soluong,thongTinDatHang.getHoTen(),thongTinDatHang.getSdt(),thongTinDatHang.getEmail(),thongTinDatHang.getDiaChi(),hinhthuc_tt,"1");
